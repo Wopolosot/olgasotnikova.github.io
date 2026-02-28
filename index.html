@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сотникова Ольга Николаевна | Начальник отдела развития персонала</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #1E40AF;
+            --accent: #10B981;
+            --text: #1E293B;
+            --text-light: #64748B;
+            --background: #F8FAFC;
+            --cards: #FFFFFF;
+            --border: #E2E8F0;
+            --gold: #F59E0B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--text);
+            background-color: var(--background);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        header {
+            background-color: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.75rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        .download-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.15) 0%, transparent 40%);
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-text h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        .hero-text p {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            max-width: 650px;
+            line-height: 1.6;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+        }
+        .btn {
+            padding: 1rem 2.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .btn-primary:hover {
+            background: #f8fafc;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-3px);
+        }
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        section {
+            padding: 6rem 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 4rem;
+            position: relative;
+            letter-spacing: -0.5px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        .about-me {
+            background: var(--cards);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 3rem;
+            border-left: 4px solid var(--primary);
+        }
+        .about-me h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .about-me p {
+            font-size: 1.15rem;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        .about-me .highlight {
+            background: linear-gradient(120deg, rgba(16, 185, 129, 0.1) 0%, transparent 100%);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            display: inline;
+        }
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .value-card {
+            background: var(--cards);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        .value-card:hover {
+            transform: translateY(-8px);
+        }
+        .value-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        .value-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .value-card p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+        .metric-card {
+            background: var(--cards);
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent);
+        }
+        .metric-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 1rem 0;
+            letter-spacing: -1px;
+        }
+        .metric-label {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .metric-desc {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .gallery-card {
+            background: var(--cards);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .gallery-card.cert {
+            border-top: 4px solid var(--primary);
+        }
+        .gallery-card.award {
+            border-top: 4px solid var(--gold);
+        }
+        .gallery-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        .gallery-content {
+            padding: 1.75rem;
+        }
+        .gallery-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .gallery-card p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .contact-item {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            min-width: 50px;
+        }
+        .contact-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.15rem;
+            transition: color 0.3s;
+        }
+        .contact-text a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        footer {
+            background: linear-gradient(135deg, var(--text), #0f172a);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 3rem 0 2rem;
+            font-size: 1.05rem;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+        @media (max-width: 900px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .value-grid, .metrics-grid, .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .contacts-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+            .section-title {
+                font-size: 2.1rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .value-grid, .metrics-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hero-text h1 {
+                font-size: 2.1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+            }
+            .hero-image img {
+                width: 240px;
+                height: 240px;
+            }
+            section {
+                padding: 4rem 0;
+            }
+            .section-title {
+                font-size: 1.9rem;
+            }
+            .metric-number {
+                font-size: 2.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Хедер -->
+    <header>
+        <div class="header-container container">
+            <a href="#hero" class="logo">ОЛЬГА СОТНИКОВА</a>
+            <nav class="nav-links">
+                <a href="#about" class="active">Обо мне</a>
+                <a href="#results">Результаты</a>
+                <a href="#certificates">Сертификаты</a>
+                <a href="#awards">Награды</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <a href="resume.pdf" class="download-btn" download>📄 Резюме</a>
+        </div>
+    </header>
+
+    <!-- Герой -->
+    <section class="hero" id="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Развиваю персонал в масштабе 3500+ сотрудников</h1>
+                <p>Начальник отдела развития персонала в КМС-Интех. Создаю системы, которые снижают текучесть, ускоряют адаптацию и выращивают лидеров изнутри.</p>
+                <div class="hero-buttons">
+                    <a href="#results" class="btn btn-primary">Мои результаты</a>
+                    <a href="resume.pdf" class="btn btn-secondary" download>Скачать резюме</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="photo.jpg" alt="Сотникова Ольга Николаевна">
+            </div>
+        </div>
+    </section>
+
+    <!-- Коротко о себе -->
+    <section class="container" id="about">
+        <div class="about-me">
+            <h2>Коротко о себе</h2>
+            <p><span class="highlight">Начальник отдела развития персонала</span> в КМС-Интех (3500+ сотрудников). Эксперт в создании систем развития персонала, снижении текучести и выращивании лидеров изнутри.</p>
+            <p><span class="highlight">Спикер на XI Всероссийском Форуме СТРАТЕГИЯ ОБУЧЕНИЯ ПЕРСОНАЛА</span> (18-19 февраля 2026 г.) по теме: «Кадровый резерв: растим лидеров, развиваем профессионалов».</p>
+            <p>Ищу возможности для реализации своего опыта в компаниях, готовых инвестировать в развитие персонала.</p>
+        </div>
+
+        <h2 class="section-title">Что я приношу бизнесу</h2>
+        <div class="value-grid">
+            <div class="value-card">
+                <div class="value-icon">📊</div>
+                <h3>Измеримые результаты</h3>
+                <p>Каждое решение привязано к бизнес-метрикам</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🚀</div>
+                <h3>Масштабируемость</h3>
+                <p>Системы работают при росте от 500 до 3500+ сотрудников</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">💡</div>
+                <h3>Стратегическое мышление</h3>
+                <p>Вижу связь между развитием персонала и бизнес-целями</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <h3>Развитие лидеров</h3>
+                <p>Выращиваю управленцев изнутри вместо дорогостоящего найма</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Результаты -->
+    <section class="container" id="results">
+        <h2 class="section-title">Измеримые результаты</h2>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number" id="metric1">30%</div>
+                <div class="metric-label">Текучесть ↓</div>
+                <div class="metric-desc">за 12 месяцев</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" id="metric2">40%</div>
+                <div class="metric-label">Время адаптации ↓</div>
+                <div class="metric-desc">новых сотрудников</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" id="metric3">45</div>
+                <div class="metric-label">Менеджеров обучено</div>
+                <div class="metric-desc">в академии лидерства</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" id="metric4">$1.2M</div>
+                <div class="metric-label">Экономия</div>
+                <div class="metric-desc">за год</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" id="metric5">95%</div>
+                <div class="metric-label">Вовлечённость</div>
+                <div class="metric-desc">в системе оценки</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number" id="metric6">85%</div>
+                <div class="metric-label">Удержание топ-талантов</div>
+                <div class="metric-desc">на 2+ года</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Сертификаты -->
+    <section class="container" id="certificates" style="background-color: var(--background);">
+        <h2 class="section-title">Сертификаты</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card cert">
+                <img src="sertifikat.jpg" alt="Сертификат о повышении квалификации" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>📜 Стратегическое управление персоналом</h3>
+                    <p>Высшая школа экономики (НИУ ВШЭ)</p>
+                    <p>Сентябрь — Декабрь 2024</p>
+                </div>
+            </div>
+            <div class="gallery-card cert">
+                <img src="sertifikat.jpg" alt="Сертификат по HR Analytics" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>📜 HR Analytics и метрики эффективности</h3>
+                    <p>Московская школа управления СКОЛКОВО</p>
+                    <p>Март — Июнь 2025</p>
+                </div>
+            </div>
+            <div class="gallery-card cert">
+                <img src="sertifikat.jpg" alt="Сертификат по программе развития лидеров" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>📜 Программа развития лидеров</h3>
+                    <p>Harvard Business School Online</p>
+                    <p>Январь — Апрель 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Награды -->
+    <section class="container" id="awards">
+        <h2 class="section-title">Награды и благодарности</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card award">
+                <img src="gramota.jpg" alt="Лучший HR-руководитель года" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>🏆 Лучший HR-руководитель года</h3>
+                    <p>Премия «Человек года в IT»</p>
+                    <p>2025</p>
+                </div>
+            </div>
+            <div class="gallery-card award">
+                <img src="gramota.jpg" alt="Благодарность от генерального директора" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>🏆 Благодарность от генерального директора</h3>
+                    <p>ООО «КМС-Интех»</p>
+                    <p>2024</p>
+                </div>
+            </div>
+            <div class="gallery-card award">
+                <img src="gramota.jpg" alt="Спикер года" class="gallery-img">
+                <div class="gallery-content">
+                    <h3>🏆 Спикер года</h3>
+                    <p>XI Всероссийский Форум СТРАТЕГИЯ ОБУЧЕНИЯ ПЕРСОНАЛА</p>
+                    <p>18-19 февраля 2026 г.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="container" id="contacts" style="background-color: var(--background);">
+        <h2 class="section-title">Контакты</h2>
+        <div class="contacts-grid">
+            <div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <div class="contact-text">
+                        <strong>Telegram:</strong><br>
+                        <a href="https://t.me/Sotnikovaon" target="_blank">@Sotnikovaon</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div class="contact-text">
+                        <strong>Email:</strong><br>
+                        <a href="mailto:sotnikovaon@yandex.ru">sotnikovaon@yandex.ru</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📱</div>
+                    <div class="contact-text">
+                        <strong>Телефон:</strong><br>
+                        +7 (999) 123-45-67
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🎥</div>
+                    <div class="contact-text">
+                        <strong>Видеовизитка:</strong><br>
+                        <a href="https://www.youtube.com/watch?v=p0swyyhP6u0" target="_blank">Смотреть на YouTube</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div class="contact-text">
+                        <strong>LinkedIn:</strong><br>
+                        <a href="https://linkedin.com/in/sotnikovaon" target="_blank">linkedin.com/in/sotnikovaon</a>
+                    </div>
+                </div>
+            </div>
+            <div class="about-me" style="margin-top: 0;">
+                <h2>Кратко о себе</h2>
+                <p><span class="highlight">Начальник отдела развития персонала</span> в КМС-Интех (3500+ сотрудников). Эксперт в создании систем развития персонала, снижении текучести и выращивании лидеров изнутри.</p>
+                <p><span class="highlight">Спикер на XI Всероссийском Форуме</span> по теме кадрового резерва и развития профессионалов.</p>
+                <p>Ищу возможности для реализации своего опыта в компаниях, готовых инвестировать в развитие персонала.</p>
+                <a href="resume.pdf" class="download-btn" style="width: 100%; margin-top: 1.5rem;" download>📄 Скачать резюме</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>© Сотникова Ольга Николаевна 2026 — Открыта к новым возможностям</p>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/sotnikovaon" target="_blank">LinkedIn</a>
+                <a href="https://t.me/Sotnikovaon" target="_blank">Telegram</a>
+                <a href="https://www.youtube.com/watch?v=p0swyyhP6u0" target="_blank">Видеовизитка</a>
+            </div>
+            <p>КМС-Интех · 3500+ сотрудников</p>
+        </div>
+    </footer>
+
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Анимация метрик при прокрутке
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateMetrics();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(document.getElementById('results'));
+
+        function animateMetrics() {
+            const metrics = [
+                { id: 'metric1', target: 30, suffix: '%' },
+                { id: 'metric2', target: 40, suffix: '%' },
+                { id: 'metric3', target: 45, suffix: '' },
+                { id: 'metric4', target: 1200000, suffix: '', format: 'currency' },
+                { id: 'metric5', target: 95, suffix: '%' },
+                { id: 'metric6', target: 85, suffix: '%' }
+            ];
+
+            metrics.forEach(metric => {
+                const element = document.getElementById(metric.id);
+                const target = metric.target;
+                const suffix = metric.suffix || '';
+                let current = 0;
+                const duration = 2000;
+                const steps = 60;
+                const increment = target / steps;
+                const stepTime = duration / steps;
+
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+
+                    if (metric.format === 'currency') {
+                        element.textContent = '$' + Math.floor(current / 1000) + 'M';
+                    } else {
+                        element.textContent = Math.floor(current) + suffix;
+                    }
+                }, stepTime);
+            });
+        }
+    </script>
+</body>
+</html>
